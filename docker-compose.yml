@@ -1,0 +1,18 @@
+services:
+  chronocat-docker:
+    image: Mlikiowa/llonebot-docker
+    tty: true
+    container_name: llonebot-docker
+    restart: always
+    ports:
+      - "5900:5900"       #vnc默认端口
+      - "6081:6081"       #noVNC默认端口
+      - "3000:3000"    
+      - "3001:3001"
+    # - "3001:3001" 留给反向
+    environment:
+      - TZ=Asia/Shanghai
+      - VNC_PASSWD=vncpasswd
+    volumes:
+      - ./config:/root/.chronocat/config
+      # - ./data/QQ:/root/.config/QQ #QQ数据固化目录，请先阅读README再使用
