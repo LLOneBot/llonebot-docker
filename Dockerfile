@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y \
     # 解压LiteLoader 移动安装目录
     unzip /tmp/LiteLoaderQQNT.zip -d /tmp/ && \
     mkdir /opt/QQ/resources/app/LiteLoader/ && \
+    ls /tmp/ && \
     mv /tmp/LiteLoader/* /opt/QQ/resources/app/LiteLoader/ && \
     rm /tmp/LiteLoaderQQNT.zip && \
     # 三阶段
