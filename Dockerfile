@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* && \
     # 一阶段
     \
-    git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 &&\
+    git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
     cd /opt && git clone https://github.com/novnc/noVNC.git && \
     cd opt/noVNC/utils && git clone https://github.com/novnc/websockify.git && \
     cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y \
     unzip /tmp/LLOneBot.zip -d /root/LiteLoaderQQNT/plugins/ && \
     rm /tmp/LLOneBot.zip && \
     # 五阶段
+    \
     mkdir -p ~/.vnc && \
     \
     echo "#!/bin/bash" > ~/start.sh && \
