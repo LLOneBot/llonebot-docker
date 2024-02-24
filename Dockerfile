@@ -33,8 +33,8 @@ RUN apt-get update && apt-get install -y \
     curl -o /root/linuxqq_3.2.5-21453_amd64.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_amd64.deb && \
     dpkg -i /root/linuxqq_3.2.5-21453_amd64.deb && apt-get -f install -y && rm /root/linuxqq_3.2.5-21453_amd64.deb && \
     curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
-    unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/ && \
-    # rm /tmp/LiteLoaderQQNT.zip && \
+    # unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/ && \
+    rm /tmp/LiteLoaderQQNT.zip && \
     # 三阶段
     sed -i 's/"main": ".\/app_launcher\/index.js"/"main": ".\/LiteLoader"/' /opt/QQ/resources/app/package.json  && \
     # 四阶段
