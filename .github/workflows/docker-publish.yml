@@ -25,7 +25,7 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "DOCKER_IMAGE_TAG=Mlikiowa/llonebot-docker:latest" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE_TAG=mlikiowa/llonebot-docker:latest" >> $GITHUB_ENV
 
       - name: Check Dockerfile changes
         id: dockerfile-changed
