@@ -1,6 +1,6 @@
 services:
   chronocat-docker:
-    image: Mlikiowa/llonebot-docker
+    image: mlikiowa/llonebot-docker
     tty: true
     container_name: llonebot-docker
     restart: always
