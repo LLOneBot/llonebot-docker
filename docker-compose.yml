@@ -13,6 +13,3 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - VNC_PASSWD=vncpasswd
-    volumes:
-      - ./config:/root/.chronocat/config
-      # - ./data/QQ:/root/.config/QQ #QQ数据固化目录，请先阅读README再使用

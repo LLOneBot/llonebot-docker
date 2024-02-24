@@ -2,6 +2,9 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
+RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot
+
+USER LLOneBot
 
 RUN apt-get update && apt-get install -y \
     openbox \
