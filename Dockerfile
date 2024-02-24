@@ -2,11 +2,8 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
-RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot
-
-USER LLOneBot
-
-RUN apt-get update && apt-get install -y \
+RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
+    apt-get update && apt-get install -y \
     openbox \
     curl \
     unzip \
@@ -54,6 +51,7 @@ RUN apt-get update && apt-get install -y \
     mkdir -p ~/.vnc && \
     \
     echo "#!/bin/bash" > ~/start.sh && \
+    echo "su LLOneBot" > ~/start.sh && \
     echo "rm /tmp/.X1-lock" >> ~/start.sh && \
     echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
     echo "export DISPLAY=:1" >> ~/start.sh && \
@@ -61,7 +59,7 @@ RUN apt-get update && apt-get install -y \
     echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
     echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
-    echo "su -c 'qq' root" >> ~/start.sh && \
+    echo "sudo su -c 'qq' root" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
