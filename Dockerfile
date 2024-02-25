@@ -41,7 +41,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     rm /tmp/LiteLoaderQQNT.zip && \
     # 修补QQ载入LiteLoader
     sed -i "1i\require('/opt/QQ/resources/app/LiteLoader/');" /opt/QQ/resources/app/app_launcher/index.js && \
-    cat /opt/QQ/resources/app/LiteLoader/index.js  && \
+    cat /opt/QQ/resources/app/app_launcher/index.js  && \
     # 安装LLOneBot
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/ && \
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
