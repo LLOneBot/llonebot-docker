@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
-RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && chown -R LLOneBot:LLOneBot / && \
+RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && chown -f -R LLOneBot:LLOneBot / && \
     apt-get update && apt-get install -y \
     openbox \
     curl \
