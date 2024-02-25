@@ -23,7 +23,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     # 安装gosu
-    curl -o /tmp/gosu https://github.com/tianon/gosu/releases/download/1.17/gosu-amd64  && \
+    curl -o /tmp/gosu https://github.com/tianon/gosu/releases/download/1.17/gosu-amd64  && chmod 777 /tmp/gosu && \
     # 安装NoVnc
     \
     git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
