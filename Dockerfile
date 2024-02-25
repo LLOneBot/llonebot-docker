@@ -58,6 +58,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     \
     echo "#!/bin/bash" > ~/start.sh && \
     echo "rm /tmp/.X1-lock" >> ~/start.sh && \
+    echo "mkdir -p /var/run/dbus && export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --fork --config-file=/usr/share/dbus-1/session.conf --print-address" && \
     echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
     echo "export DISPLAY=:1" >> ~/start.sh && \
     echo "fluxbox &" >> ~/start.sh && \ 
