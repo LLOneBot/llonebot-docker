@@ -3,8 +3,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
 
-RUN groupadd -r LLOneBot && useradd -r -g LLOneBot && \
-    mkdir -p /home/LLOneBot/Downloads && chown -R LLOneBot:LLOneBot /home/LLOneBot && \
+RUN groupadd -r redis && useradd -r -g redis redis && \
     apt-get update && apt-get install -y \
     openbox \
     curl \
@@ -26,7 +25,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot && \
     rm -rf /var/lib/apt/lists/* && \
     # 安装gosu
     curl -o /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64" && \
-    chmod +x /usr/local/bin/gosu && \
+    chmod +x /usr/local/bin/gosu && gosu nobody true && \
     # 安装NoVnc
     \
     git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
@@ -65,7 +64,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot && \
     echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
     echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
-    echo "gosu LLOneBot qq" >> ~/start.sh && \
+    echo "exec gosu LLOneBot qq" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
