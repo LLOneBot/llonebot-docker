@@ -36,7 +36,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
     mkdir /opt/QQ/resources/app/LiteLoader/ && mkdir /tmp/LiteLoader/ && \
     unzip /tmp/LiteLoaderQQNT.zip -d /tmp/LiteLoader/ && \
-    ls /tmp/ && \
+    ls /opt/QQ/resources/app/app_launcher/ && \
     mv /tmp/LiteLoader/* /opt/QQ/resources/app/LiteLoader/ && \
     rm /tmp/LiteLoaderQQNT.zip && \
     # 修补QQ载入LiteLoader
