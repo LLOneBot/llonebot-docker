@@ -2,7 +2,7 @@
 [DockerHub](https://hub.docker.com/r/mlikiowa/llonebot-docker)
 ## 快速启动
  ```bash
- sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/config:/root/.chronocat/config mlikiowa/llonebot-docker
+ sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
  ```
 其中vncpasswd换成你的VNC密码
 或者下载代码中的docker-compose.yml，然后执行
