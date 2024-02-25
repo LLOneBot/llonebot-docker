@@ -13,3 +13,6 @@ services:
     environment:
       - TZ=Asia/Shanghai
       - VNC_PASSWD=vncpasswd
+    volumes:
+      - ./LiteLoader/:/opt/QQ/LiteLoader/
+      # 未固化QQ数据 当前仅固化LiteLoader
