@@ -13,13 +13,6 @@ sudo docker-compose up -d
 ## 数据固化（可选）
 先完成上面的`快速运行`，保证容器在运行状态
 
-```bash
-# 进入项目目录
-mkdir data
-# 复制数据到data目录
-docker cp chronocat-docker:/root/.config/QQ ./data
-```
-
 如果之前是docker run运行的，执行
 
 ```bash
