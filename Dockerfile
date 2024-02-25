@@ -22,30 +22,33 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     gnutls-bin && \    
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    # 一阶段
+    # 安装NoVnc
     \
     git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
     cd /opt && git clone https://github.com/novnc/noVNC.git && \
     cd /opt/noVNC/utils && git clone https://github.com/novnc/websockify.git && \
     cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
     \
-    # 二阶段
+    # 安装QQ
     curl -o /root/linuxqq_3.2.5-21453_amd64.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_amd64.deb && \
     dpkg -i /root/linuxqq_3.2.5-21453_amd64.deb && apt-get -f install -y && rm /root/linuxqq_3.2.5-21453_amd64.deb && \
+    # 安装LiteLoader
     curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
-    # 解压LiteLoader 移动安装目录
     mkdir /opt/QQ/resources/app/LiteLoader/ && mkdir /tmp/LiteLoader/ && \
     unzip /tmp/LiteLoaderQQNT.zip -d /tmp/LiteLoader/ && \
     ls /tmp/ && \
     mv /tmp/LiteLoader/* /opt/QQ/resources/app/LiteLoader/ && \
     rm /tmp/LiteLoaderQQNT.zip && \
-    # 三阶段
-    sed -i 's/"main": ".\/app_launcher\/index.js"/"main": ".\/LiteLoader"/' /opt/QQ/resources/app/package.json  && \
-    # 四阶段
+    # 修补QQ载入LiteLoader
+    cd /opt/QQ/resources/app/app_launcher && \
+    sed -i '' -e "1i\require('/opt/QQ/resources/app/LiteLoader/');" -e '$a\' index.js && \
+    # 安装LLOneBot
+    mkdir /opt/QQ/resources/app/LiteLoader/plugins/ && \
+    mkdir /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
     curl -L -o /tmp/LLOneBot.zip https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi/releases/download/v3.7.0/LLOneBot.zip && \
-    mkdir -p /root/LiteLoaderQQNT/plugins && \
-    unzip /tmp/LLOneBot.zip -d /root/LiteLoaderQQNT/plugins/ && \
+    unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
     rm /tmp/LLOneBot.zip && \
+    # 自动配置
     # 五阶段
     \
     mkdir -p ~/.vnc && \
