@@ -23,7 +23,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     # 安装gosu
-    curl -o /root/gosu https://github.com/tianon/gosu/releases/download/1.17/gosu-amd64  && \
+    curl -o /tmp/gosu https://github.com/tianon/gosu/releases/download/1.17/gosu-amd64  && \
     # 安装NoVnc
     \
     git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
@@ -62,7 +62,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
     echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
-    echo "/root/gosu LLOneBot qq" >> ~/start.sh && \
+    echo "/tmp/gosu LLOneBot qq" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
