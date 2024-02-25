@@ -68,6 +68,6 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && \
     echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
     echo "[program:x11vnc]" >> /etc/supervisor/supervisord.conf && \
     echo "command=/usr/bin/x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd" >> /etc/supervisor/supervisord.conf
-USER ubuntu
+USER LLOneBot
 # 设置容器启动时运行的命令
 CMD ["/bin/bash", "-c", "/root/start.sh"]
