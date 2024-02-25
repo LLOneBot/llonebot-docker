@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
-RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && chown -f -R LLOneBot:LLOneBot / && \
+RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && apt-get -y install gosu && \
     apt-get update && apt-get install -y \
     openbox \
     curl \
@@ -60,7 +60,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot  && chown -f -R LLOn
     echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
     echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
-    echo "qq" >> ~/start.sh && \
+    echo "gosu LLOneBot qq" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
