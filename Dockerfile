@@ -5,6 +5,7 @@ ENV VNC_PASSWD=vncpasswd
 
 RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     apt-get update && apt-get install -y \
+    dbus-user-session \
     openbox \
     curl \
     unzip \
@@ -57,9 +58,10 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     mkdir -p ~/.vnc && \
     \
     echo "#!/bin/bash" > ~/start.sh && \
-    echo "rm /tmp/.X1-lock" >> ~/start.sh && \
-    echo "mkdir -p /var/run/dbus & " && \
-    echo "export DBUS_SESSION_BUS_ADDRESS=`dbus-daemon --fork --config-file=/usr/share/dbus-1/session.conf --print-address`" && \
+    echo "rm -rf /run/dbus/pid &" >> ~/start.sh && \
+    echo "rm /tmp/.X1-lock &" >> ~/start.sh && \
+    echo "mkdir -p /var/run/dbus &" >> ~/start.sh && \
+    echo "dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &">> ~/start.sh && \
     echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
     echo "export DISPLAY=:1" >> ~/start.sh && \
     echo "fluxbox &" >> ~/start.sh && \ 
