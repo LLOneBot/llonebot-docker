@@ -24,9 +24,6 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     gnutls-bin && \    
     apt-get clean --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* && \
-    # 安装gosu
-    curl -o /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64" && \
-    chmod +x /usr/local/bin/gosu && gosu nobody true && \
     # 安装NoVnc
     \
     git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
@@ -36,7 +33,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     \
     # 安装QQ
     arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
-    curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_amd64.deb && \
+    curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_${arch}.deb && \
     dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
     # 安装LiteLoader
     curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
@@ -51,7 +48,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     # 安装LLOneBot
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/ && \
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
-    curl -L -o /tmp/LLOneBot.zip https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi/releases/download/v3.7.0/LLOneBot.zip && \
+    curl -L -o /tmp/LLOneBot.zip https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi/releases/download/v3.8.0/LLOneBot.zip && \
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
     rm /tmp/LLOneBot.zip && \
     # 自动配置
