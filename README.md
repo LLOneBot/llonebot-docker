@@ -41,7 +41,7 @@ sudo docker exec onebot-docker0 sh -c "x11vnc -storepasswd newpasswd /root/.vnc/
 ```
 其中newpasswd换成你的新密码，立即生效，无需重启容器
 
-# 参考与基础
+## 参考与基础
 [linyuchen/LiteLoaderQQNT-OneBotApi](https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi)
 
 [yuuki-nya/chronocat-docker](https://github.com/yuuki-nya/chronocat-docker/blob/main/Dockerfile)
