@@ -49,7 +49,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     # 安装LLOneBot
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/ && \
     mkdir /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
-    curl -L -o /tmp/LLOneBot.zip https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi/releases/download/v3.8/LLOneBot.zip && \
+    curl -L -o /tmp/LLOneBot.zip https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi/releases/download/v3.8.1/LLOneBot.zip && \
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/ && \
     rm /tmp/LLOneBot.zip && \
     # 自动配置
