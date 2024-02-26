@@ -17,6 +17,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     libnss3 \
     xdg-utils \
     libsecret-1-0 \
+    ffmpeg \
     libgbm1 \
     libasound2 \
     fonts-wqy-zenhei \
