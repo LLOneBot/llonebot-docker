@@ -43,6 +43,7 @@ sudo docker exec onebot-docker0 sh -c "x11vnc -storepasswd newpasswd /root/.vnc/
 
 # 参考与基础
 [linyuchen/LiteLoaderQQNT-OneBotApi](https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi)
+
 [yuuki-nya/chronocat-docker](https://github.com/yuuki-nya/chronocat-docker/blob/main/Dockerfile)
 
 ## 已知问题与提示
