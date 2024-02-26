@@ -72,10 +72,10 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     echo "exec supervisord" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
-    echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
-    echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
-    echo "[program:qq]" >> /etc/supervisor/supervisord.conf && \
-    echo "command=qq --no-sandbox" >> /etc/supervisor/supervisord.conf && \
-    echo 'environment=DISPLAY=":1"' >> /etc/supervisor/supervisord.conf
+    echo "[supervisord]" > /etc/supervisord.conf && \
+    echo "nodaemon=true" >> /etc/supervisord.conf && \
+    echo "[program:qq]" >> /etc/supervisord.conf && \
+    echo "command=qq --no-sandbox" >> /etc/supervisord.conf && \
+    echo 'environment=DISPLAY=":1"' >> /etc/supervisord.conf
 # 设置容器启动时运行的命令
 CMD ["/bin/bash", "-c", "/root/start.sh"]
