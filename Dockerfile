@@ -35,8 +35,9 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
     \
     # 安装QQ
-    curl -o /root/linuxqq_3.2.5-21453_amd64.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_amd64.deb && \
-    dpkg -i /root/linuxqq_3.2.5-21453_amd64.deb && apt-get -f install -y && rm /root/linuxqq_3.2.5-21453_amd64.deb && \
+    arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
+    curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_amd64.deb && \
+    dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
     # 安装LiteLoader
     curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.0.3/LiteLoaderQQNT.zip && \
     mkdir /opt/QQ/resources/app/LiteLoader/ && mkdir /tmp/LiteLoader/ && \
@@ -74,6 +75,8 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     \
     echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
+    echo "[program:qq]" >> /etc/supervisord.conf && \
+    echo "command=qq --no-sandbox" >> /etc/supervisord.conf && \
     echo "[program:qq]" >> /etc/supervisord.conf && \
     echo "command=qq --no-sandbox" >> /etc/supervisord.conf && \
     echo 'environment=DISPLAY=":1"' >> /etc/supervisord.conf
