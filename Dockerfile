@@ -69,12 +69,13 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
     echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
     # --disable-gpu 不加入
-    echo "qq --no-sandbox" >> ~/start.sh && \
+    echo "exec supervisord" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisor/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisor/supervisord.conf && \
-    echo "[program:x11vnc]" >> /etc/supervisor/supervisord.conf && \
-    echo "command=/usr/bin/x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd" >> /etc/supervisor/supervisord.conf
+    echo "[program:qq]" >> /etc/supervisor/supervisord.conf && \
+    echo "command=qq --no-sandbox" >> /etc/supervisor/supervisord.conf && \
+    echo 'environment=DISPLAY=":1"' >> /etc/supervisor/supervisord.conf
 # 设置容器启动时运行的命令
 CMD ["/bin/bash", "-c", "/root/start.sh"]
