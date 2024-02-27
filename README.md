@@ -5,7 +5,7 @@
 - [x] Linux/Amd64
 - [x] Linux/Arm64
 
-## 快速启动
+## 使用方案（一）快速启动
  ```bash
  sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
  ```
@@ -15,7 +15,7 @@
 ```bash
 sudo docker-compose up -d
 ```
-## 快速配置脚本 实验性
+## 使用方案（二）快速配置脚本 实验性
 零配置脚本 快速启动
 
  ```bash
