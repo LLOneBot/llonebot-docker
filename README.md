@@ -15,6 +15,15 @@
 ```bash
 sudo docker-compose up -d
 ```
+## 快速配置脚本 实验性
+零配置脚本 快速启动
+
+ ```bash
+curl https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
+ ```
+ ```bash
+wget -O fastboot.sh https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
+ ```
 ## 数据固化
 ### 暂时忽略 未实现QQ本体数据固化 仅实现LiteLoader包括其所有插件数据固化 无需阅读该条目录
 先完成上面的`快速运行`，保证容器在运行状态
