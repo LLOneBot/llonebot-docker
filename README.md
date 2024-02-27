@@ -1,5 +1,10 @@
 # LLOneBot-Docker
 [DockerHub](https://hub.docker.com/r/mlikiowa/llonebot-docker)
+
+## Support Platform/Arch
+- [x] Linux/Amd64
+- [x] Linux/Arm64
+
 ## 快速启动
  ```bash
  sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
