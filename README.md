@@ -22,7 +22,7 @@ sudo docker-compose up -d
 curl https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
  ```
  ```bash
-wget -O fastboot.sh https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
+wget -O fastboot.sh https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
  ```
 ## 数据固化
 ### 暂时忽略 未实现QQ本体数据固化 仅实现LiteLoader包括其所有插件数据固化 无需阅读该条目录
