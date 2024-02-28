@@ -28,10 +28,10 @@ sudo docker-compose up -d
 零配置脚本 快速启动
 
  ```bash
-curl https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
+curl https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
  ```
  ```bash
-wget -O fastboot.sh https://cdn.jsdelivr.net/gh/MliKiowa/llonebot-docker/fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
+wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
  ```
 ## Feat
 ### 崩溃快速重启
@@ -71,7 +71,7 @@ sudo docker exec onebot-docker0 sh -c "x11vnc -storepasswd newpasswd /root/.vnc/
 其中newpasswd换成你的新密码，立即生效，无需重启容器
 
 ## 参考与基础
-[linyuchen/LiteLoaderQQNT-OneBotApi](https://github.com/linyuchen/LiteLoaderQQNT-OneBotApi)
+[linyuchen/LiteLoaderQQNT-OneBotApi](https://github.com/LLOneBot/LiteLoaderQQNT-OneBotApi)
 
 [yuuki-nya/chronocat-docker](https://github.com/yuuki-nya/chronocat-docker/blob/main/Dockerfile)
 
