@@ -8,6 +8,7 @@ else
     docker_installed=false
 fi
 # 安装Docker
+# Version 19.0.0
 if [ "$docker_installed" = true ]; then
     echo "Docker已安装。正在安装脚本..."
     # 在此处添加您的启动命令
