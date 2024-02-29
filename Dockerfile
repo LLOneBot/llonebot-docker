@@ -5,7 +5,7 @@ ENV VNC_PASSWD=vncpasswd
 
 RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     apt-get update && apt-get install -y \
-    xinit
+    xinit \
     dbus-user-session \
     openbox \
     curl \
