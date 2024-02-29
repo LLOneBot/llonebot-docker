@@ -59,6 +59,7 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     mkdir -p ~/.vnc && \
     \
     echo "#!/bin/bash" > ~/start.sh && \
+    echo "chmod 777 /tmp &" >> ~/start.sh && \
     echo "rm -rf /run/dbus/pid &" >> ~/start.sh && \
     echo "rm /tmp/.X1-lock &" >> ~/start.sh && \
     echo "mkdir -p /var/run/dbus &" >> ~/start.sh && \
@@ -80,4 +81,4 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     echo 'environment=DISPLAY=":1"' >> /etc/supervisord.conf
     
 # 设置容器启动时运行的命令
-CMD ["/bin/bash", "-c", "startx & sh /root/start.sh"]
+CMD ["/bin/bash", "-c", "startx -d :1 & sh /root/start.sh"]
