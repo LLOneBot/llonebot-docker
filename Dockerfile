@@ -3,8 +3,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
 
-RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
-    apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     openbox \
     xorg \
     dbus-user-session \
@@ -81,4 +80,4 @@ RUN groupadd -r LLOneBot && useradd -r -g LLOneBot LLOneBot && \
     echo 'environment=DISPLAY=":1"' >> /etc/supervisord.conf
     
 # 设置容器启动时运行的命令
-CMD ["/bin/bash", "-c", "startx -d :1 -w & sh /root/start.sh"]
+CMD ["/bin/bash", "-c", "startx & sh /root/start.sh"]
