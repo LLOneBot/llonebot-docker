@@ -1,5 +1,5 @@
 services:
-  chronocat-docker:
+  llonebot-docker:
     image: mlikiowa/llonebot-docker
     tty: true
     container_name: llonebot-docker
