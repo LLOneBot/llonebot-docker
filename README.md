@@ -78,3 +78,6 @@ sudo docker exec onebot-docker0 sh -c "x11vnc -storepasswd newpasswd /root/.vnc/
 ## 已知问题与提示
 ### 1.快速闪退
 如果连接反向ws后快速闪退 清空容器数据之后 再次配置先启用上报自身消息 在vnc窗口复制 之前触发机器人的消息 使用机器人账号发送 再正常使用bot
+
+### 2.发送文件
+需要挂载相应文件夹
