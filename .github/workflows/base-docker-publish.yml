@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  REGISTRY_IMAGE: mlikiowa/llonebot-docker:base
+  REGISTRY_IMAGE: initialencounter/llonebot-docker:base
 
 jobs:
   build:
