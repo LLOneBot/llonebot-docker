@@ -1,4 +1,16 @@
 #!/bin/bash
+
+mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot
+# 安装 LiteLoader
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/package.json" ]; then
+    unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
+fi
+
+# 安装 LLOneBot
+if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
+    unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
+fi
+
 chmod 777 /tmp &
 rm -rf /run/dbus/pid &
 rm /tmp/.X1-lock &
