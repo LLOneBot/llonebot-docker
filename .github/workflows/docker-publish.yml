@@ -1,4 +1,4 @@
-name: ci
+name: latest
 
 on:
   workflow_dispatch:
