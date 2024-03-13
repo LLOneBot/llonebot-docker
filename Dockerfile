@@ -1,40 +1,9 @@
-FROM ubuntu:22.04
+FROM mlikiowa/llonebot-docker:base
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
 
-RUN apt-get update && apt-get install -y \
-    openbox \
-    xorg \
-    dbus-user-session \
-    openbox \
-    curl \
-    unzip \
-    x11vnc \
-    xvfb \
-    fluxbox \
-    supervisor \
-    libnotify4 \
-    libnss3 \
-    xdg-utils \
-    libsecret-1-0 \
-    ffmpeg \
-    libgbm1 \
-    libasound2 \
-    fonts-wqy-zenhei \
-    git \
-    gnutls-bin && \    
-    apt-get clean --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/* && \
-    # 安装NoVnc
-    \
-    git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
-    cd /opt && git clone https://github.com/novnc/noVNC.git && \
-    cd /opt/noVNC/utils && git clone https://github.com/novnc/websockify.git && \
-    cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
-    \
-    # 安装QQ
-    arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
+RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_${arch}.deb && \
     dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
     # 安装LiteLoader
