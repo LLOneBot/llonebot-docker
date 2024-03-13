@@ -16,7 +16,7 @@ rm -rf /run/dbus/pid &
 rm /tmp/.X1-lock &
 mkdir -p /var/run/dbus &
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
-Xvfb :1 -screen 0 1280x1024x16 &
+Xvfb :1 -screen 0 1080x760x16 &
 export DISPLAY=:1
 fluxbox & 
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
