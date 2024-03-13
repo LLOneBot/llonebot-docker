@@ -2,9 +2,9 @@ name: ci
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "main"
+  # push:
+  #   branches:
+  #     - "main"
 
 env:
   REGISTRY_IMAGE: mlikiowa/llonebot-docker
