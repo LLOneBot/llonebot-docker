@@ -2,6 +2,7 @@ FROM mlikiowa/llonebot-docker:base
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
+COPY start.sh /root/start.sh
 
 RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_${arch}.deb && \
@@ -26,20 +27,6 @@ RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     \
     mkdir -p ~/.vnc && \
     \
-    echo "#!/bin/bash" > ~/start.sh && \
-    echo "chmod 777 /tmp &" >> ~/start.sh && \
-    echo "rm -rf /run/dbus/pid &" >> ~/start.sh && \
-    echo "rm /tmp/.X1-lock &" >> ~/start.sh && \
-    echo "mkdir -p /var/run/dbus &" >> ~/start.sh && \
-    echo "dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &">> ~/start.sh && \
-    echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
-    echo "export DISPLAY=:1" >> ~/start.sh && \
-    echo "fluxbox &" >> ~/start.sh && \ 
-    echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
-    echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
-    echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
-    # --disable-gpu 不加入
-    echo "exec supervisord" >> ~/start.sh && \
     chmod +x ~/start.sh && \
     \
     echo "[supervisord]" > /etc/supervisord.conf && \
