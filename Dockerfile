@@ -1,4 +1,4 @@
-FROM initialencounter/llonebot-docker:base
+FROM initialencounter/llonebot-docker-base
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
