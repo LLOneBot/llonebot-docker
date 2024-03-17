@@ -20,6 +20,5 @@ mkdir -p /var/run/dbus &
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
 Xvfb :1 -screen 0 1080x760x16 &
 export DISPLAY=:1
-fluxbox & 
 # --disable-gpu 不加入
 exec supervisord

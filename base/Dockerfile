@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     xvfb \
-    fluxbox \
     supervisor \
     libnotify4 \
     libnss3 \
