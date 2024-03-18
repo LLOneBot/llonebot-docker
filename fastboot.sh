@@ -23,7 +23,7 @@ fi
 read -p "请配置NoVnc密码: " novnc_password
 
 # 输入启动脚本
-echo "sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=${novnc_password} -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker" > start.sh
+echo "sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker" > start.sh
 echo "安装成功! 下次启动执行 sudo sh ./start.sh 即可启动"
 
 # 赋予权限

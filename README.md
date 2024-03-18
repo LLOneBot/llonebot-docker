@@ -19,7 +19,7 @@
    
 ## 使用方案（一）快速启动
  ```bash
- sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
+ sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker
  ```
 其中vncpasswd换成你的VNC密码
 或者下载代码中的docker-compose.yml，然后执行
@@ -48,7 +48,7 @@ wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboo
 如果之前是docker run运行的，执行
 
 ```bash
- sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
+ sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker
 ```
 
 如果之前是docker-compose运行的
