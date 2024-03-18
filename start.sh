@@ -7,7 +7,7 @@ if [ ! -f "/opt/QQ/resources/app/LiteLoader/package.json" ]; then
     unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
 fi
 
-# 安装 LLOneBot
+# 安装 LLOneBot、LLWebUiApi
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
     unzip /tmp/LLWebUiApi.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLWebUiApi/
