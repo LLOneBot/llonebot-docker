@@ -3,6 +3,7 @@ FROM mlikiowa/llonebot-docker:base
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
 COPY start.sh /root/start.sh
+COPY config/LLWebUiApi_config.json /root/LLWebUiApi_config.json
 
 RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_${arch}.deb && \
