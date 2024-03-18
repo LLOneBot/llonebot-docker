@@ -2,6 +2,7 @@ FROM mlikiowa/llonebot-docker:base
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWD=vncpasswd
+ENV BOOT_MODE=3
 COPY start.sh /root/start.sh
 COPY config/LLWebUiApi_config.json /root/LLWebUiApi_config.json
 
