@@ -5,8 +5,7 @@ services:
     container_name: llonebot-docker
     restart: always
     ports:
-      - "5900:5900"       #vnc默认端口
-      - "6081:6081"       #noVNC默认端口
+      - "6099:6099"
       - "3000:3000"    
       - "3001:3001"
     # - "3001:3001" 留给反向
