@@ -4,7 +4,9 @@
 ## Information
 请注意! 该项目使用应当遵守上游开源库协议与要求，遵守当地法律与规范。
 
-该项目适用于快速将NTQQ Bot托管容器，提供Vnc与NoVnc，以便连接图形界面。
+该项目适用于快速将NTQQ Bot托管容器，提供 LLWebUiApi，以便远程登录和配置。
+
+！！！当前版本 LLWebUiApi 鉴权部分暂未完成，存在安全风险，请勿将 API 暴露于公网！！！
 
 ## Support Platform/Arch
 - [x] Linux/Amd64
@@ -12,11 +14,12 @@
 
 ## Install
 1. 安装参考已选方案一与方案二 启动
-2. 启动后连接Vnc或者NoVnc 到设置配置Bot
+2. 远程登录，浏览器访问 `http://服务器IP:6099/api/panel/getQQLoginQRcode`
+3. 配置，浏览器访问 `http://服务器IP:6099/plugin/LLOneBot/iframe.html`
    
 ## 使用方案（一）快速启动
  ```bash
- sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
+ sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
  ```
 其中vncpasswd换成你的VNC密码
 或者下载代码中的docker-compose.yml，然后执行
@@ -45,7 +48,7 @@ wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboo
 如果之前是docker run运行的，执行
 
 ```bash
- sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6081:6081 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
+ sudo docker run -d --name onebot-docker0 -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader/:/opt/QQ/LiteLoader/ mlikiowa/llonebot-docker
 ```
 
 如果之前是docker-compose运行的
@@ -54,21 +57,9 @@ wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboo
 docker-compose up -d
 ```
 ## Server Login
-### noVNC登陆
+### 远程登陆
 
-浏览器访问`http://服务器IP:6081`，默认密码是`vncpasswd`
-
-### VNC登陆
-
-使用VNC软件登陆`服务器IP:5900`，默认密码是`vncpasswd`
-
-
-### 修改VNC密码
-
-```bash
-sudo docker exec onebot-docker0 sh -c "x11vnc -storepasswd newpasswd /root/.vnc/passwd"
-```
-其中newpasswd换成你的新密码，立即生效，无需重启容器
+浏览器访问`http://服务器IP:6099/api/panel/getQQLoginQRcode`
 
 ## 参考与基础
 [LLOneBot/LLOneBot](https://github.com/LLOneBot/LLOneBot)
