@@ -10,4 +10,5 @@ RUN apt-get update && apt-get install -y \
     x11vnc && \    
     apt-get clean --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* && \
+    mkdir -p ~/.vnc && \
     chmod +x /root/start.sh
