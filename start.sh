@@ -14,7 +14,7 @@ if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; t
     # 设置启动模式
     if [ "$BOOT_MODE" ]; then
         mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi
-        cp /root/LLWebUiApi_config.json /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
+        echo '{"Server":{"Port":6099},"AutoLogin":true,"BootMode":BOOT_MODE,"Debug":false}' > /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
         sed -i "s/BOOT_MODE/$BOOT_MODE/" /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
     fi
 fi
