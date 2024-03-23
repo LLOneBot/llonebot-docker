@@ -4,9 +4,7 @@
 ## Information
 请注意! 该项目使用应当遵守上游开源库协议与要求，遵守当地法律与规范。
 
-该项目适用于快速将NTQQ Bot托管容器，提供 LLWebUiApi，以便远程登录和配置。
-
-！！！当前版本 LLWebUiApi 鉴权部分暂未完成，存在安全风险，请勿将 API 暴露于公网！！！
+该项目适用于快速将NTQQ Bot托管容器，提供 VNC，以便远程登录和配置。
 
 ## Support Platform/Arch
 - [x] Linux/Amd64
