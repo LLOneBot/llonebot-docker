@@ -40,23 +40,6 @@ wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboo
 ### 数据固化
 暂时忽略 未实现QQ本体数据固化 仅实现LiteLoader包括其所有插件数据固化(按照以上流程启动无须考虑，已自动启用) 无需阅读该条目录 
 
-先完成上面的`快速运行`，保证容器在运行状态
-
-如果之前是docker run运行的，执行
-
-```bash
- sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:vnc
-```
-
-如果之前是docker-compose运行的
-
-```bash
-docker-compose up -d
-```
-## Server Login
-### 远程登陆
-
-浏览器访问`http://服务器IP:6099/api/panel/getQQLoginQRcode`
 
 ## 参考与基础
 [LLOneBot/LLOneBot](https://github.com/LLOneBot/LLOneBot)
