@@ -1,12 +1,12 @@
 version: '3'
 services:
   llonebot-docker:
-    image: mlikiowa/llonebot-docker
+    image: mlikiowa/llonebot-docker:vnc
     tty: true
     container_name: llonebot-docker
     restart: always
     ports:
-      - "6099:6099"
+      - "5900:5900"
       - "3000:3000"    
       - "3001:3001"
     # - "3001:3001" 留给反向
