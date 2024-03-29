@@ -13,7 +13,7 @@
 ## Image Layer
 
 - mlikiowa/llonebot-docker:latest
-    - 不提供 VNC, 只能提供 LLWebUiApi 来登录
+    - 不提供 VNC, 只能通过 LLWebUiApi 来登录
 - mlikiowa/llonebot-docker:vnc
     - 提供了 VNC
 
