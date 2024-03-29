@@ -10,6 +10,13 @@
 - [x] Linux/Amd64
 - [x] Linux/Arm64
 
+## Image Layer
+
+- mlikiowa/llonebot-docker:latest
+    - 不提供 VNC, 只能提供 LLWebUiApi 来登录
+- mlikiowa/llonebot-docker:vnc
+    - 提供了 VNC
+
 ## Install
 1. 安装参考已选方案一与方案二 启动
 2. 远程登录，VNC登录 `服务器IP:5900`
