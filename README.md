@@ -31,6 +31,9 @@
 ```bash
 sudo docker-compose up -d
 ```
+
+等待 docker 启动完毕后使用 vnc 客户端连接进入 docker Linux 桌面登录 QQ 和配置 LLOneBot
+
 ## 使用方案（二）webui登录
 
  ```bash
