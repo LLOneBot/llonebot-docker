@@ -21,7 +21,7 @@
 1. 安装参考已选方案一与方案二 启动
 2. 远程登录，VNC登录 `服务器IP:5900`
    
-## 使用方案（一）快速启动
+## 使用方案（一）VNC登录
  ```bash
  sudo docker run -d --name onebot-docker0 -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:vnc
  ```
@@ -31,8 +31,7 @@
 ```bash
 sudo docker-compose up -d
 ```
-## 使用方案（二）快速配置脚本 实验性
-零配置脚本 快速启动
+## 使用方案（二）webui登录
 
  ```bash
 curl https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboot.sh -o fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
@@ -40,6 +39,11 @@ curl https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboot.sh -o fastboo
  ```bash
 wget -O fastboot.sh https://cdn.jsdelivr.net/gh/LLOneBot/llonebot-docker/fastboot.sh & chmod +x fastboot.sh & sudo sh fastboot.sh
  ```
+
+然后浏览器访问 `http://你的docker-ip:6099/api/panel/getQQLoginQRcode` 扫码登录
+
+登录之后访问 `http://你的docker-ip:6099/plugin/LLOneBot/iframe.html` 进行 llonebot 的配置
+
 ## Feat
 ### 崩溃快速重启
 你仅仅需要到设置配置自动登录，保证崩溃时手机QQ不在线即可，其余时间可以使用手机QQ
