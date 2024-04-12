@@ -6,6 +6,7 @@
 
 该项目适用于快速将NTQQ Bot托管容器，提供 VNC，以便远程登录和配置。
 
+LLOneBot容器已经带有ffmpeg不需要额外配置，如手动点击配置 导致容器配置数据异常
 ## Support Platform/Arch
 - [x] Linux/Amd64
 - [x] Linux/Arm64
