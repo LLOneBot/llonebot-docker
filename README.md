@@ -1,6 +1,11 @@
 # LLOneBot-Docker
 [DockerHub](https://hub.docker.com/r/mlikiowa/llonebot-docker)
 
+## Alternative
+如果 LLOneBot Docker 如果无法正常启动。
+
+而你的服务器有没有GUI环境或者内存太小 可以迁移至 [NapCatQQ](https://github.com/NapNeko/NapCatQQ) ，该项目无需GUI与图形环境
+
 ## Information
 请注意! 该项目使用应当遵守上游开源库协议与要求，遵守当地法律与规范。
 
