@@ -1,7 +1,8 @@
 FROM ubuntu:22.04
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV VNC_PASSWD=vncpasswd
+ENV DEBIAN_FRONTEND=noninteractive \
+    VNC_PASSWD=vncpasswd \
+    TZ=Asia/Shanghai
 
 RUN apt-get update && apt-get install -y \
     openbox \
@@ -20,8 +21,13 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     fonts-wqy-zenhei \
     git \
-    gnutls-bin && \    
-    apt-get clean --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
-
-    
+    gnutls-bin \
+    tzdata && \
+    echo "${TZ}" > /etc/timezone && \ 
+    ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    apt autoremove -y && \
+    apt clean && \
+    rm -rf \
+    /var/lib/apt/lists/* \
+    /tmp/* \
+    /var/tmp/*
