@@ -40,13 +40,11 @@ sudo docker-compose up -d
 
 等待 docker 启动完毕后使用 vnc 客户端连接进入 docker Linux 桌面登录 QQ 和配置 LLOneBot
 
-## 使用方案（二）LLWebuiApi 登录
+## 使用方案（二）终端扫码登录
 
  ```bash
 sudo docker run -d --name onebot-docker0 --network=host -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 6099:6099 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:latest
  ```
-
-终端扫码登录
 
 登录之后，修改`/opt/QQ/resources/app/LiteLoader/data/LLOneBot/config_<QQ号>.json`进行 llonebot 的配置
 
