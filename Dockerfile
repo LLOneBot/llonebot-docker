@@ -9,7 +9,7 @@ RUN arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/Linux/QQ_3.2.12_240927_${arch}_01.deb && \
     dpkg -i /root/linuxqq.deb && apt-get -f install -y && rm /root/linuxqq.deb && \
     # 下载LiteLoader
-    curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.2.1/LiteLoaderQQNT.zip && \
+    curl -L -o /tmp/LiteLoaderQQNT.zip https://github.com/LiteLoaderQQNT/LiteLoaderQQNT/releases/download/1.2.2/LiteLoaderQQNT.zip && \
     mkdir -p /opt/QQ/resources/app/LiteLoader && \
         ##  ---调试开启  检测文件情况 ls /opt/QQ/resources/app/app_launcher/ && \
     # 修补QQ载入LiteLoader
