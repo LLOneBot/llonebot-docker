@@ -10,12 +10,6 @@ fi
 # 安装 LLOneBot、LLWebUiApi
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
-    unzip /tmp/LLWebUiApi.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLWebUiApi/
-    # 设置启动模式
-    if [ "$BOOT_MODE" ]; then
-        mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi
-        echo "{\"Server\":{\"Port\":6099},\"AutoLogin\":true,\"BootMode\":$BOOT_MODE,\"Debug\":false}" > /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
-    fi
 fi
 
 chmod 777 /tmp &
