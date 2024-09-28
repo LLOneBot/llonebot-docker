@@ -1,22 +1,16 @@
 #!/bin/bash
 
 mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot
-mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/LLWebUiApi
+mkdir -p /opt/QQ/resources/app/LiteLoader/plugins/whale
 # 安装 LiteLoader
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/package.json" ]; then
     unzip /tmp/LiteLoaderQQNT.zip -d /opt/QQ/resources/app/LiteLoader/
 fi
 
-# 安装 LLOneBot、LLWebUiApi
+# 安装 LLOneBot、whale
 if [ ! -f "/opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/manifest.json" ]; then
     unzip /tmp/LLOneBot.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLOneBot/
-    unzip /tmp/LLWebUiApi.zip -d /opt/QQ/resources/app/LiteLoader/plugins/LLWebUiApi/
-    # 设置启动模式
-    if [ "$BOOT_MODE" ]; then
-        mkdir -p /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi
-        echo '{"Server":{"Port":6099},"AutoLogin":true,"BootMode":BOOT_MODE,"Debug":false}' > /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
-        sed -i "s/BOOT_MODE/$BOOT_MODE/" /opt/QQ/resources/app/LiteLoader/data/LLWebUiApi/config.json
-    fi
+    unzip /tmp/whale.zip -d /opt/QQ/resources/app/LiteLoader/plugins/whale/
 fi
 
 chmod 777 /tmp &
