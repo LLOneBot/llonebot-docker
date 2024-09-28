@@ -29,7 +29,7 @@ LLOneBot容器已经带有ffmpeg不需要额外配置，如手动点击配置 �
    
 ## 使用方案（一）VNC登录
  ```bash
- sudo docker run -d --name onebot-docker0 --network=host -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:vnc
+ sudo docker run -d --name llob -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 5900:5900 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:vnc
  ```
 其中vncpasswd换成你的VNC密码
 或者下载代码中的docker-compose.yml，然后执行
@@ -43,7 +43,7 @@ sudo docker-compose up -d
 ## 使用方案（二）终端扫码登录
 
  ```bash
-sudo docker run -d --name onebot-docker0 --network=host -e VNC_PASSWD=vncpasswd -p 3000:3000 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:latest
+sudo docker run -d --name llob -p 3000:3000 -p 3001:3001 -v ${PWD}/LiteLoader:/opt/QQ/resources/app/LiteLoader mlikiowa/llonebot-docker:latest
  ```
 
 登录之后，修改`/opt/QQ/resources/app/LiteLoader/data/LLOneBot/config_<QQ号>.json`进行 llonebot 的配置

@@ -16,4 +16,3 @@ services:
     volumes:
       - ./LiteLoader/:/opt/QQ/resources/app/LiteLoader
       # 未固化QQ数据 当前仅固化LiteLoader
-    network_mode: host
