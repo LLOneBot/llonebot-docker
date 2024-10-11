@@ -24,4 +24,4 @@ x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/pass
 x11vnc -storepasswd $VNC_PASSWD ~/.vnc/passwd &
 export DISPLAY=:1
 # --disable-gpu 不加入
-exec supervisord
+qq --no-sandbox
